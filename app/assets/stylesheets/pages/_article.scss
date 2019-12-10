@@ -1,0 +1,32 @@
+.container-accordion {
+  position: relative;
+  margin-bottom: 5rem;
+  width: 1028px;
+
+  .card {
+    border: none;
+  }
+  .card-header {
+    border: none;
+    padding-left: 0;
+  }
+
+  .card-body {
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 97%;
+  }
+
+  h5 {
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+}
+
+#quizBtn {
+  margin-top: 2rem;
+  width: 101px;
+  position: absolute;
+  right: 10px;
+}

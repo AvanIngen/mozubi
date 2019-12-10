@@ -1,0 +1,73 @@
+.nounderline {
+  text-decoration: none !important
+}
+
+
+.material-icons-sharp {
+  padding-left: 1px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.collapsed i{
+  transform: rotate(180deg);
+}
+
+
+.card-header {
+  background-color: #ffffff;
+  border-top: 0.2px solid;
+  border-color: #dfdfdf;
+  border-bottom: none;
+}
+
+.card-body {
+  border-top: none;
+  padding-top: 0px;
+}
+
+.read-time {
+  margin-bottom: 0rem;
+  padding-right: 10px;
+}
+
+.article-details {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.title-style {
+  display: flex;
+  justify-content: center;
+}
+
+.article-card {
+  margin-right: 19px;
+}
+
+.art {
+  padding-right: 12px;
+}
+
+.container-accordion {
+  width: 100%;
+}
+
+.article-title {
+  margin-left: -15px;
+}
+
+.quiz-button {
+  margin-right: -14px;
+}
+
+.bookmark-icon {
+  margin-right: 20px;
+}
+
+.badge-style {
+  font-size: 52%;
+  border-radius: 2px;
+  margin-left: 19px;
+}

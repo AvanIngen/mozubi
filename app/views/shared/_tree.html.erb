@@ -1,0 +1,66 @@
+<div>
+    <!-- <div class="search">
+      <i class="material-icons-sharp" id="search-icon">search</i>
+      <div class="hidden searchbar">
+        <%#= render 'shared/searchbar' %>
+      </div>
+    </div> -->
+    <div class="open">
+      <ul class="nav list accordion" id="accordionExample">
+        <% @all_topics.each do |topic| %>
+          <% if topic.articles.all? { |article| @art_read.include?(article.id) } %>
+          <%# topic.articles.map { |article| @art_read.include?(article.id) } %>
+              <li class="tree-item read">
+          <% else %>
+              <li class="tree-item">
+          <% end %>
+            <%# raise %>
+            <div class="hidden">
+              <a href="#submenu<%= topic.id %>" aria-controls='submenu<%= topic.id %>' data-toggle="collapse" aria-expanded="true" data-target="#submenu<%= topic.id %>" class=" list-group-item-action">
+                <%= topic.name.upcase %>
+              </a>
+            <%# raise %>
+              <div id='submenu<%= topic.id %>' class="collapse sidebar-submenu" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <ul class="sub">
+                  <% topic.articles.sort.each do |article| %>
+                    <% if @art_read.include?(article.id) %>
+                      <li class="nav-sub read">
+                    <% else %>
+                      <li class="nav-sub">
+                    <% end %>
+                      <%= link_to article, class: "#{article_class?(article)}" do %>
+                        <%= article.title %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </li>
+        <% end %>
+        <%# raise %>
+        <!-- @all_topics.map { |topic| topic.articles.map { |article| @art_read.include?(article.id) } } -->
+      </ul>
+    </div>
+</div>
+
+<script>
+  // const button = document.querySelector("aria-expanded")
+  var menu = document.querySelector('a[href="#submenu<%= @article.topic_id %>"]');
+  menu.setAttribute("class", "list-group-item-action #{topic_class?(topic)} collapsed");
+  var submenu = document.querySelector('#submenu<%= @article.topic_id %>');
+  submenu.setAttribute("class", "collapse sidebar-submenu show");
+</script>
+
+<!-- <script>
+
+
+  const tree = document.querySelector(".tree")
+  tree.addEventListener("click", (e) => {
+    tree.classList.toggle("show");
+  })
+  const search = document.querySelector(".searchbar")
+  search.addEventListener("click", (e) => {
+    e.stopPropagation();
+  })
+</script> -->

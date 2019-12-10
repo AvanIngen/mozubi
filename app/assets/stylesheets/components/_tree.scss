@@ -1,0 +1,217 @@
+$width-tree: calc(#{$sidebar-width} / 2);
+$width-half: calc(#{$width-tree} / 2);
+$width-third: calc(#{$width-tree} / 3);
+$width-fourth: calc(#{$width-tree} / 4);
+$width-eights: calc(#{$width-tree} / 8);
+
+$line-width: 4px;
+$line-left: calc(#{$width-half} - (#{$line-width} / 2));
+$line-left-tiny: calc(#{$width-half} - (#{$line-width}));
+
+$dot-width: $width-fourth;
+$dot-left: calc(#{$width-half} - (#{$dot-width} / 2));
+
+$search-left: calc(#{$width-half} - 12px);
+
+$height: 50px;
+$height-half: calc(#{$height} / 2);
+
+$width-closed: calc(#{$width-tree} + #{$line-width});
+$width-expand: calc(#{$sidebar-width} * 5);
+
+.tree {
+  top: 0;
+  bottom: 0;
+  z-index: 150;
+  // box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  width: $width-expand;
+  height: 100vh;
+  margin-left: 0px;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: $text-secondary;
+  position: absolute;
+  top: 0;
+}
+.tree-sticky {
+}
+@keyframes expand {
+  0% {
+    width: $width-closed;
+  }
+  100% {
+    width: $width-expand;
+  }
+}
+.sticky-div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .tree {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+// .tree {
+//   width: $width-expand;
+//   animation: expand .3s ease-in;
+// }
+.close-tree {
+  transition: 0.3s ease-out;
+}
+.tree .nav {
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  align-content: stretch;
+}
+.tree .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  // line-height: 2rem;
+  display: flex;
+}
+.tree .tree-item {
+  padding-left: $width-tree;
+  width: 100%;
+  color: $text-primary;
+  // height: 100%;
+}
+.tree-item {
+  font-size: 14px;
+  letter-spacing: 0px;
+  position: relative;
+}
+// .tree .tree-item:hover {
+//   background-color: $hover-primary;
+//   width: 100%;
+// }
+.tree .tree-item.active ul.list:before {
+  background: $primary;
+}
+.tree .nav-sub {
+  list-style: none;
+  padding-right: 4px;
+}
+.hidden {
+  visibility: hidden;
+  // display: none;
+}
+.tree .hidden {
+  visibility: visible;
+  transition-delay: 0.4s;
+}
+.gone {
+  display: none;
+  transition-delay: 0s;
+}
+.tree .gone {
+  display: block;
+}
+// .tree .btn{
+//   margin: 0;
+//   padding: 0;
+// }
+.material-icons-sharp {
+  font-size: 24px;
+}
+.open {
+  height: calc(100vh - 0px);
+  display: flex;
+}
+ul {
+  padding-inline-start: $line-left;
+}
+.list {
+  list-style-type: none;
+  position: relative;
+  font-weight: 200;
+}
+.list .active {
+  font-weight: 900;
+}
+.list > li {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.list > li.read:before {
+  content: " ";
+  background: $secondary;
+  display: inline-block;
+  position: absolute;
+  left: $line-left;
+  width: $line-width;
+  height: 100%;
+}
+.list > li:before {
+  content: " ";
+  background: $unfinished;
+  display: inline-block;
+  position: absolute;
+  left: $line-left;
+  width: $line-width;
+  height: 100%;
+}
+.collapsed {
+  font-weight: 900 !important;
+}
+ul.nav-sub {
+  list-style-type: none;
+  position: relative;
+  padding-right: 7px;
+}
+// .nav-sub.read:before {
+//   background-color: red;
+//   content: " ";
+//   background: $secondary;
+//   display: inline-block;
+//   position: absolute;
+//   left: $line-left;
+//   width: $line-width;
+//   height: 100%;
+// }
+.tree {
+  text-decoration: none;
+  font-size: 0.8rem;
+  a {
+    background-color: white !important;
+  }
+  /* unvisited link */
+  a:link {
+    color: $text-primary;
+    text-decoration: none;
+  }
+
+  /* visited link */
+  a:visited {
+    color: $text-primary;
+    text-decoration: none;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: $text-primary;
+    text-decoration: none;
+    background-color: white;
+    font-weight: 900;
+  }
+
+  a:active {
+    color: $text-primary;
+    text-decoration: none;
+    background-color: white;
+  }
+}
+.nav-sub.read {
+  a{
+    color: $secondary !important;
+  }
+}

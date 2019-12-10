@@ -1,0 +1,61 @@
+.top-bar {
+  position: relative;
+  // padding: 21px;
+  // margin-top: 30px;
+  // margin-left: 60px;
+  width: $card-width;
+  background-color: #fff !important;
+  color: $primary !important;
+  border: none;
+
+  .top-body {
+    padding-top: 20px;
+    p {
+      font-size: 20px;
+      color: $text-primary;
+      .number {
+      color: $primary;
+      font-weight: 900;
+      font-size: 24px;
+      }
+    }
+  }
+
+  .top-bar {
+    background-color: #fff !important;
+    color: $primary !important;
+  }
+
+  h2 {
+    display: block;
+    font-size: 27px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 6px;
+    font-size: 16px;
+
+    strong {
+      text-decoration: underline;
+      font-size: 18px;
+    }
+  }
+
+  progress {
+    border-radius: 2px;
+    width: 100%;
+    height: 5px;
+  }
+  progress::-webkit-progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 2px;
+  }
+  progress::-webkit-progress-value {
+    border-radius: 2px;
+    background-color: $secondary;
+  }
+  progress::-moz-progress-bar {
+    /* style rules */
+  }
+}

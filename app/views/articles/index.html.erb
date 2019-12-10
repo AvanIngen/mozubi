@@ -1,0 +1,81 @@
+<div class="container-library">
+  <div class="row justify-content-center flex-column align-items-center">
+    <ul class="nav nav-pills" id="libraryTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bookmarks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Upcoming reads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Completed</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="libraryContent">
+      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="container-fluid">
+          <div class="card-library">
+            <div class="card-library-header">
+              <div>
+                Articles: <strong><%= @articles_bookmarked.count %></strong>
+              </div>
+              <div>
+         <!--        <i class="far fa-bookmark"></i> -->
+              </div>
+            </div>
+            <div class="card-library-body">
+              <% @articles_bookmarked.each.with_index do |user_article, index| %>
+                 <%= link_to user_article do %>
+                  <p class="card-library-item"><%= user_article.title %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="container-fluid">
+          <div class="card-library">
+            <div class="card-library-header">
+              <div>
+                Articles: <strong><%= @articles_upcoming.count %></strong>
+              </div>
+              <div>
+             <!--    <i class="far fa-newspaper"></i> -->
+              </div>
+            </div>
+            <div class="card-library-body">
+              <% @articles_upcoming.each_with_index do |article, index| %>
+                <%= link_to article do %>
+                  <p class="card-library-item"><%= article.title %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="container-fluid">
+          <div class="card-library">
+            <div class="card-library-header">
+              <div>
+                Articles: <strong><%= @articles_read.count %></strong>
+              </div>
+              <div>
+            <!--     <i class="fas fa-check"></i> -->
+              </div>
+            </div>
+            <div class="card-library-body">
+              <% @articles_read.each.with_index do |user_article, index| %>
+                  <%= link_to user_article do %>
+                    <p class="card-library-item"><%= user_article.title %></p>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.content {
+  // position: absolute;
+}
+
+.container-dashboard {
+  display: block;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+
+}
+
+.dashboard-cards {
+  @media screen {
+    display: flex;
+    // justify-content: space-between;
+  }
+  margin-top: 2%;
+}
